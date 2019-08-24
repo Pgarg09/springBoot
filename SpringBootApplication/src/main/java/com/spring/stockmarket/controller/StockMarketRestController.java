@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,7 @@ public class StockMarketRestController {
 		return stockservice.calculatePERatio(stockBody.getStock(), price);	
 	}
 	
-	@PostMapping("/recordTrade")
+	@PutMapping("/recordTrade")
 	public Boolean recordTrade(@RequestBody TradingJsonBean tradingModel) {
 		
 		int quantity = Validator.validateAndGiveQuantity(tradingModel.getShareQuantity());
